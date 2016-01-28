@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/jee
+        http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- Configure the dependency injection using annotations e.g. Inject -->
+    <context:annotation-config />
+    <!-- <context:component-scan base-package="persistence.components"/> -->
+
+    <!-- Lookup data sources and transaction manager in JBoss container -->
+    <jee:jndi-lookup jndi-name="java:jboss/datasources/SomeDS" id="mySqlDataSource" />
+    <jee:jndi-lookup jndi-name="java:jboss/datasources/MartDS" id="oracleDatamartDataSource" />
+    <jee:jndi-lookup jndi-name="java:jboss/UserTransaction" id="userTransaction" />
+    <jee:jndi-lookup jndi-name="java:jboss/TransactionManager" id="jtaTransactionManager" />
+
+    <!-- Initialise repositories -->
+    <jpa:repositories base-package="repository"  
+                entity-manager-factory-ref="cleansedEntityManagerFactory" />
+    <jpa:repositories base-package="nontrans" entity-manager-factory-ref="uncleansedNontransEntityManagerFactory" />
+    <jpa:repositories base-package="trans" entity-manager-factory-ref="uncleansedTransEntityManagerFactory" />
+
+
+    <!-- Create entity manager factory for cleansed-->
+    <bean id="cleansedEntityManagerFactory" 
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="spring4-jpa-project" />
+        <property name="jtaDataSource" ref="mySqlDataSource" />
+        <property name="packagesToScan" value="entity" />
+        <property name="persistenceXmlLocation" value="classpath:/persistence.xml" />
+        <property name="jpaVendorAdapter">
+            <bean
+                class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false" />
+                <property name="database" value="MYSQL" />
+                <property name="generateDdl" value="false" />
+            </bean>
+        </property>
+        <property name="jpaPropertyMap">
+            <map>
+            </map>
+        </property>
+    </bean>
+
+    <!-- Create entity manager factory for uncleansed datamart (Non-Transactional)-->
+    <bean id="uncleansedNontransEntityManagerFactory" 
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="spring4-jpa-project2" />
+        <property name="jtaDataSource" ref="oracleDatamartDataSource" />
+        <property name="packagesToScan" value="entity.nontrans" />
+        <property name="persistenceXmlLocation" value="classpath:/persistence.xml" />
+        <property name="jpaVendorAdapter">
+            <bean
+                class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false" />
+                <property name="database" value="ORACLE" />
+                <property name="generateDdl" value="false" />
+            </bean>
+        </property>
+        <property name="jpaPropertyMap">
+            <map>
+            </map>
+        </property>
+    </bean>
+
+
+    <!-- Configure JTA transaction manager using container (JBoss) provided 
+        transaction managers -->
+    <bean id="transactionManager"
+        class="org.springframework.transaction.jta.JtaTransactionManager">
+        <constructor-arg ref="userTransaction" />
+        <constructor-arg ref="jtaTransactionManager" />
+    </bean>
+
+    <!-- Initialise custom hibernate factory to get hold of Hibernate session 
+        in order to perform session related tasks e.g. evict objects etc. -->
+    <bean class="utils.HibernateCleansedSessionFactory"
+        factory-method="instance" />
+
+    <bean class="utils.HibernateUncleansedNontransSessionFactory"
+        factory-method="instance" />
+
+</beans>

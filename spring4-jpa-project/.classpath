@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JPA">
+		<attributes>
+			<attribute name="owner.project.facets" value="jpt.jpa"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/driver/h2-1.4.182.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/driver/ojdbc6.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/antlr-2.7.7.redhat-4.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/dom4j-1.6.1.redhat-6.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/hibernate-commons-annotations-4.0.2.Final-redhat-1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/hibernate-core-4.2.18.Final-redhat-2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/hibernate-entitymanager-4.2.18.Final-redhat-2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/hibernate-jpa-2.0-api-1.0.1.Final-redhat-3.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/hibernate-validator-4.3.2.Final-redhat-2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/jboss-ejb-api_3.1_spec-1.0.2.Final-redhat-3.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/jboss-logging-3.1.4.GA-redhat-2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/hibernate/jboss-transaction-api_1.1_spec-1.0.1.Final-redhat-3.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/javax.inject-1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/commons-logging-1.1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/testing/junit-4.11.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/testing/objenesis-2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/testing/cglib-nodep-2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/testing/javassist-3.18.2-GA.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/testing/hamcrest-all-1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-test-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/driver/mysql-connector-java-5.1.26-bin.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/commonj.sdo-2.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/javax.persistence-2.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-orm-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-tx-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-data-commons-1.8.2.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-data-jpa-1.6.2.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-jdbc-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-aspects-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-aop-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-beans-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-core-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-context-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-context-support-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/spring/spring-expression-4.0.6.RELEASE.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/aopalliance-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/slf4j-api-1.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/slf4j-ext-1.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/slf4j-jcl-1.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/projects/OTHERS/libs/common/slf4j-log4j12-1.7.7.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

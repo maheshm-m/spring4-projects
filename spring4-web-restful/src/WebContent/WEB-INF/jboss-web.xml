@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>RESTFul</context-root>
+</jboss-web>

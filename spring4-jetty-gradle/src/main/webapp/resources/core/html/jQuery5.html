@@ -1,0 +1,29 @@
+<html>
+
+   <head>
+      <title>The jQuery Example</title>
+      <!--  <link rel="stylesheet" href="..\css\mystyle.css"> -->
+	  <script type="text/javascript" src="..\js\jquery-2.1.4.min.js"></script>
+	  <script type="text/javascript">
+		  $(document).ready(function() {
+			  
+			    $("#mmm").click(function() {
+			        alert ("Hello Jquery MMM");
+			    });
+			    
+			    $('.myclass').css("background-color", "blue");
+			});	  
+	  </script>
+   </head>
+    
+   <body>
+      <div>
+         <p class = "myclass">This is a paragraph.</p>
+         <p id = "myid">This is second paragraph.</p>
+         <div id="mmm">
+         <p>This is third paragraph.</p>
+         </div>
+      </div>
+   </body>
+    
+</html>

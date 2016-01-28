@@ -1,0 +1,77 @@
+apply plugin: 'war'
+apply plugin: 'eclipse'    
+    
+jar.enabled = false
+
+version = 'SNAPSHOT-01'
+ 
+sourceCompatibility = 1.7
+ 
+dependencies {
+
+    compile files ( '../libs/spring/spring-web-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-webmvc-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-security-web-3.2.5.RELEASE.jar',
+        '../libs/spring/spring-security-core-3.2.5.RELEASE.jar',
+        '../libs/spring/spring-security-config-3.2.5.RELEASE.jar',
+        '../libs/spring/spring-security-ldap-3.2.5.RELEASE.jar',
+        '../libs/spring/spring-ldap-core-2.0.2.RELEASE.jar',
+        '../libs/spring/spring-context-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-context-support-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-aop-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-aspects-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-beans-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-core-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-expression-4.0.6.RELEASE.jar',
+        '../libs/common/angularjs-1.3.4-1.jar',
+        '../libs/common/apacheds-all-1.5.5.jar',
+        '../libs/common/commons-digester-2.1.jar',
+        '../libs/common/displaytag-1.2.jar',
+        '../libs/common/javax.servlet-api-3.1.0.jar',
+        '../libs/common/javax.servlet.jsp-api-2.3.1.jar',
+        '../libs/common/javax.servlet.jsp.jstl-api-1.2.1.jar',
+        '../libs/common/validation-api-1.0.0.GA.jar',
+        '../libs/tiles/tiles-autotag-core-runtime-1.1.0.jar',
+        '../libs/tiles/tiles-api-3.0.4.jar',
+        '../libs/tiles/tiles-core-3.0.4.jar',
+        '../libs/tiles/tiles-compat-3.0.4.jar',
+        '../libs/tiles/tiles-el-3.0.4.jar',
+        '../libs/tiles/tiles-extras-3.0.4.jar',
+        '../libs/tiles/tiles-jsp-3.0.4.jar',
+        '../libs/tiles/tiles-servlet-3.0.4.jar',
+        '../libs/tiles/tiles-template-3.0.4.jar',
+        '../libs/tiles/tiles-request-api-1.0.4.jar',
+        '../libs/tiles/tiles-request-servlet-1.0.4.jar',
+        '../libs/tiles/tiles-request-servlet-wildcard-1.0.4.jar',
+        '../libs/tiles/tiles-request-jsp-1.0.4.jar',
+        '../libs/tiles/tiles-request-mustache-1.0.4.jar'
+	)
+}
+
+war {
+    from 'src/WebContent'
+    rootSpec.exclude('*.dm')
+    manifest {
+        attributes 'Implementation-Title': 'TEST',
+                   'Implementation-Version': version,
+                   'Dependencies': 'org.jboss.security.negotiation,org.hibernate,org.antlr,org.infinispan,org.jboss.remote-naming'
+    }
+    destinationDir new File("${buildDir}/dist")
+}
+
+
+task deploy (dependsOn: 'war') <<{
+    println 'build/dist/' + project.name + '-' + version + '.war'
+    println System.properties['jboss.home.dir'] + '/standalone/deployments'
+
+    copy {
+        from 'build/dist/' + project.name + '-' + version + '.war'
+        into System.properties['jboss.home.dir'] + '/standalone/deployments'
+    }
+
+    copy {
+        File file = new File('build/dist/' + project.name + '-' + version + '.war.dodeploy')
+        from file
+        into System.properties['jboss.home.dir'] + '/standalone/deployments'
+    }
+}

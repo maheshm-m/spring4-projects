@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="spring4-jetty-gradle">
+		<property name="context-root" value="spring4"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+		<property name="java-output-path" value="/spring4-jetty-gradle/build/classes"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/WebContent/css"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/WebContent/resources/js"/>
+		<wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
+		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-web-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-webmvc-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-context-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-context-support-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-aop-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-aspects-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-beans-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-core-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/spring/spring-expression-4.0.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/common/javax.servlet.jsp.jstl-api-1.2.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/common/validation-api-1.0.0.GA.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/projects/OTHERS/libs/common/javax.inject-1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+	</wb-module>
+</project-modules>

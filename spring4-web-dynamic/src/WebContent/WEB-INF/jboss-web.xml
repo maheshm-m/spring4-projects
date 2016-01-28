@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>FileDownloadSpringMVC</context-root>
+</jboss-web>

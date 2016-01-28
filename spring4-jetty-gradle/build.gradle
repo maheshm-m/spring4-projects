@@ -1,0 +1,75 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'jetty'
+    
+jar.enabled = false
+
+version = 'SNAPSHOT-01'
+ 
+sourceCompatibility = 1.7
+ 
+dependencies {
+
+    compile files ( '../libs/spring/spring-web-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-webmvc-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-context-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-context-support-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-aop-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-aspects-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-beans-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-core-4.0.6.RELEASE.jar',
+        '../libs/spring/spring-expression-4.0.6.RELEASE.jar',
+        '../libs/common/javax.servlet.jsp.jstl-api-1.2.1.jar',
+        '../libs/common/validation-api-1.0.0.GA.jar',
+        '../libs/common/javax.inject-1.jar'
+	)
+}
+
+task deploy (dependsOn: 'war') <<{
+    println 'build/dist/' + project.name + '-' + version + '.war'
+    println System.properties['jboss.home.dir'] + '/standalone/deployments'
+
+    copy {
+        from 'build/dist/' + project.name + '-' + version + '.war'
+        into System.properties['jboss.home.dir'] + '/standalone/deployments'
+    }
+
+    copy {
+        File file = new File('build/dist/' + project.name + '-' + version + '.war.dodeploy')
+        from file
+        into System.properties['jboss.home.dir'] + '/standalone/deployments'
+    }
+}
+
+//project.webAppDirName = 'src/WebContent'
+//httpPort = 8080
+//stopPort = 9080
+//stopKey = "stopKey"    
+
+// Embeded Jetty for testing
+jettyRun{
+    contextPath = "spring4"
+    httpPort = 8080
+    stopPort = 9080
+    scanIntervalSeconds = 60
+    reload = 'automatic'
+}
+
+jettyRunWar{
+    contextPath = "spring4"
+    httpPort = 8080
+    stopPort = 9080
+    
+}
+
+
+//For Eclipse IDE only
+eclipse {
+  wtp {
+    component {
+      //define context path, default to project folder name
+      contextPath = 'spring4'
+    }
+  }
+}
